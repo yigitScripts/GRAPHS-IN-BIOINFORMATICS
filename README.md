@@ -1,54 +1,52 @@
-# 🧬 PPI Network Analyzer (Bioinformatics Graph ADT)
+# 🧬 GRAPHS-IN-BIOINFORMATICS
 
-A Java-based application that analyzes **Protein-Protein Interaction (PPI)** networks using the STRING database. This project implements a **Graph Abstract Data Type (ADT)** using an Edge List structure to process biological data, visualize relationships, and calculate network metrics.
+A comprehensive Java-based tool designed to analyze **Protein-Protein Interaction (PPI)** networks using the STRING database. This project implements a high-performance **Graph Abstract Data Type (ADT)** to model biological data, filter interactions by confidence, and calculate complex network metrics.
 
-*Developed for CME 2201 - Data Structures and Algorithms*
+## 🚀 Overview & Features
 
-## 🚀 Features
+This tool provides a robust command-line interface (CLI) for researchers and developers to explore biological networks. Key capabilities include:
 
-The application provides a console-based interface with the following capabilities:
-
-1.  **Graph Construction & Filtering:**
-    * Loads protein data and interactions from the STRING dataset.
-    * [cite_start]Filters interactions based on a user-defined **Confidence Score Threshold** (0.0 - 1.0)[cite: 15, 62].
-2.  [cite_start]**Protein Search:** Find specific proteins by their ID[cite: 64].
-3.  [cite_start]**Interaction Verification:** Check if two proteins have a direct physical or functional association[cite: 65].
-4.  [cite_start]**Pathfinding:** Algorithms to find the "Most Confident Path" between two proteins[cite: 66].
-5.  [cite_start]**Network Metrics:** Calculates key graph statistics[cite: 67]:
+1.  **Advanced Graph Construction:**
+    * Parses and loads massive datasets from the STRING database.
+    * **Dynamic Filtering:** Users can filter interactions based on a custom **Confidence Score Threshold** (0.0 - 1.0) to focus on high-reliability connections.
+2.  **Protein Identification:** efficiently searches and retrieves specific proteins by their unique identifiers.
+3.  **Interaction Verification:** Instantly checks for direct physical or functional associations between any two proteins.
+4.  **Reliability Pathfinding:** Implements algorithms to determine the "Most Confident Path" between proteins, prioritizing high-score interactions.
+5.  **Network Topology Analysis:** Calculates essential graph metrics to understand network structure:
     * Vertex & Edge Counts
     * Average Degree
     * Network Diameter
     * Reciprocity
-6.  [cite_start]**Traversals:** Perform BFS (Breadth-First Search) and DFS (Depth-First Search) starting from a specific protein[cite: 68].
+6.  **Graph Traversals:** Supports standard BFS (Breadth-First Search) and DFS (Depth-First Search) algorithms for network exploration.
 
-## ⚠️ Dataset Setup (Important)
+## ⚠️ Dataset Configuration (Required)
 
-Due to GitHub's file size limits, the large interaction datasets (600MB+) are not hosted in this repository. You must download the official STRING dataset for *Homo sapiens*.
+To maintain a lightweight repository, the large biological datasets (600MB+) are not hosted directly here. Users must obtain the official STRING dataset for *Homo sapiens*.
 
-**Steps to Configure:**
+**Setup Instructions:**
 
-1.  **Download Data:** Visit the [STRING v12.0 Download Page](https://string-db.org/cgi/download?species_text=Homo+sapiens).
-2.  **Get these two files:**
-    * `9606.protein.links.v12.0.txt.gz` (Interaction data)
-    * `9606.protein.info.v12.0.txt.gz` (Protein metadata)
-3.  **Extract & Place:**
-    * Unzip the `.gz` files.
-    * Place the resulting `.txt` files into the `resources/` folder in the project root.
-    * **Verify filenames exactly:**
+1.  **Download Source Data:** Visit the [STRING v12.0 Database](https://string-db.org/cgi/download?species_text=Homo+sapiens).
+2.  **Acquire Files:** Download the following:
+    * `9606.protein.links.v12.0.txt.gz` (Interaction Network)
+    * `9606.protein.info.v12.0.txt.gz` (Protein Metadata)
+3.  **Installation:**
+    * Extract/Unzip the `.gz` archives.
+    * Place the resulting `.txt` files into the `resources/` directory in the project root.
+    * **Ensure exact filenames:**
         * `resources/9606.protein.info.v12.0.txt`
         * `resources/9606.protein.links.v12.0.txt`
 
-## 🛠 Project Structure
+## 🛠 Project Architecture
 
 ```text
-PPI-Network-Analyzer/
-├── resources/                  # Place downloaded .txt files here
+GRAPHS-IN-BIOINFORMATICS/
+├── resources/                  # External datasets (Git ignored / User provided)
 │   ├── 9606.protein.info.v12.0.txt
 │   └── 9606.protein.links.v12.0.txt
-├── src/
-│   ├── Edge.java               # Represents interaction with weight
-│   ├── Graph.java              # Main graph logic (Adjacency List/Edge List)
+├── src/                        # Core Application Logic
+│   ├── Edge.java               # Weighted interaction model
+│   ├── Graph.java              # Graph ADT implementation (Edge List)
 │   ├── GraphADT.java           # Interface definition
 │   ├── Protein.java            # Node entity
-│   └── Main.java               # CLI Menu and entry point
+│   └── Main.java               # CLI entry point
 └── README.md
