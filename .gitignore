@@ -28,7 +28,8 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-resources/*.txt
-resources/*.gz
+# ignore everything in resources folder
+resources/*
 
+# but .gitkeep
 !resources/.gitkeep
